@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<base href="<%=basePath%>">
+
+	<title>江西理工大学软件学院培养计划信息</title>
+
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+-->
+
+<link rel="icon" href="../static/img/ujx.ico">
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="../static/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+<!-- Custom styles for this template -->
+<link href="../static/css/blog.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap-select.css">
+
+
+<style type="text/css">
+	/* Custom Styles */
+
+	body {
+		min-height: 1000px;
+		padding-top: 50px;
+	}
+	/*a标签去掉下划线*/
+	a:link { 
+		text-decoration: none; 
+	} 
+	a:visited { 
+		text-decoration: none; 
+	} 
+	a:hover { 
+		text-decoration: none; 
+	} 
+	a:active { 
+		text-decoration: none; 
+	}
+
+	.bg-li-0{
+		background-color:#9bc2e3; /*#9bc2e3  #337ab7 */
+		color: #ffffff;
+	}
+	.bg-li-1{
+		background-color:#f8f8f8;
+	}
+	.bg-li-2{
+		background-color:#d7e7f4;
+	}
+	/*空白*/
+	.space{
+		height: 4px;
+	}
+	
+</style>
+
+
+
+</head>
+
+<body data-spy="scroll" data-target="#myScrollspy">
+
+
+   	<!-- Ajax测试
+   	<button id="btn" type="button" class="btn btn-default">button</button>
+	<div id="ajaxresult"></div>
+-->
+
+<!-- <button id="btn1" type="button" class="btn btn-default">delete</button>
+<button id="btn2" type="button" class="btn btn-default">update</button>
+<button id="btn3" type="button" class="btn btn-default">save</button>
+<button id="btn4" type="button" class="btn btn-default">query</button> -->
+
+<!-- Fixed navbar -->
+<nav id="myScrollspy" class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<!-- <a class="navbar-brand" href="#"><img src="img/ujs.jpg" class="img-responsive center-block" /></a> -->
+			<a class="navbar-brand" href="#">UJXSAT</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#section-schoolprofessionstab">学院专业</a></li>
+				<li><a href="#section-professionplan">专业计划</a></li>
+				<li><a href="#section-coursecultivationplan">课程计划</a></li>
+				<li><a href="#section-practicecultivationplan">实践计划</a></li>
+				<li><a href="/lec">课程与毕业要求入口</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="javascript:showUser()" id="user"><i class="glyphicon glyphicon-user"></i></a></li>
+				<li><a href="javascript:login()">登陆</a></li>
+				<li><a href="javascript:logout()">退出</a></li>
+			</ul>
+		</div>
+
+
+	</div> <!-- end container -->
+</nav> <!-- end nav -->
+
+
+<!-- 轮播 -->
+<div id="carousel-example-generic" class=" center carousel slide col-xs-12 col-sm-12 col-md-12 col-lg-12" data-ride="carousel"  >
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		<!-- <li data-target="#carousel-example-generic" data-slide-to="3"></li> -->
+	</ol>
+
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner" role="listbox" style="height:300px;">
+		<div class="item active">
+			<img src="../static/img/20151022025904163.jpg" alt="First slide">
+			<div class="carousel-caption">
+				致远石
+			</div>
+		</div>
+		<div class="item">
+			<img src="../static/img/20151022025546392.jpg" alt="Second slide">
+			<div class="carousel-caption">
+				学校大门
+			</div>
+		</div>
+		<div class="item">
+			<img src="../static/img/20151022025705541.jpg" alt="Third slide">
+			<div class="carousel-caption">
+				八角塘广场
+			</div>
+		</div>
+	</div>
+
+	<!-- Controls -->
+	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div>
+
+
+<div> <!-- data-offset="0" -->
+
+	<div class="container-fluid"><!--  -fluid -->
+		<div class="row" >
+
+			<!-- 学院专业栏 -->
+			<div id="section-schoolprofessionstab" class="col-xs-3 col-sm-3 col-md-2 col-lg-2" >
+				<ul id ="schoolprofessions" class="nav ">  <!-- style="height:400px;overflow:auto; position: relative;" -->
+
+				</ul>
+			</div>
+
+
+			<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 ">
+
+				<h2 id="professionid" profid='<s:property value="#session.profid" />' class="center-block"></h2>
+
+				<div class="panel-group" id="accordion">
+
+					<div class="panel panel-primary" id="section-professionplan">
+						<div class="panel-heading  center-block">
+							<h3 class="panel-title">
+							<!-- href="#collapse-professionplan" -->
+								<a data-toggle="collapse" data-parent="#accordion" >
+									专业计划
+								</a>
+							</h3>
+						</div>
+						<div id="collapse-professionplan" class="panel-collapse collapse">
+							<div class="panel-body">
+
+								<a href="#" id="add-btn-professionplan" class="btn obe-right-control" role="button">
+									<span class="glyphicon glyphicon-plus" style="color: rgb(98, 125, 255);"> 增加</span>
+								</a>
+								<br>
+								<br>
+								<div class="table-responsive">
+									<table class="table table-striped table-condensed table-hover table-bordered">
+										<thead>
+											<tr>
+												<!-- <th rowspan="2" width=5%>专业ID</th> -->	
+												<th rowspan="2" width=10%>主干课程</th>
+												<th colspan="4" width=20%>通识教育</th>
+												<th colspan="4" width=20%>专业基础</th>
+												<th colspan="4" width=20%>专业课</th>
+												<th colspan="4" width=20%>独立实践</th>
+												<th rowspan="2" colspan="2" width=5%>操作</th>
+											</tr>
+											<tr>
+												<th>学分</th>
+												<th>学时</th>
+												<th>必修比例</th>
+												<th>选修比例</th>
+												<th>学分</th>
+												<th>学时</th>
+												<th>必修比例</th>
+												<th>选修比例</th>
+												<th>学分</th>
+												<th>学时</th>
+												<th>必修比例</th>
+												<th>选修比例</th>
+												<th>学分</th>
+												<th>学时</th>
+												<th>必修比例</th>
+												<th>选修比例</th>
+											</tr>
+										</thead>
+										<tbody id="tbprofessioncultivationplan">
+
+										</tbody>
+
+									</table>
+								</div>
+								<a href="#" id="add-btn-graduationcreditrequired" class="btn obe-right-control" role="button">
+									<span class="glyphicon glyphicon-plus" style="color: rgb(98, 125, 255);"> 增加</span>
+								</a>
+								<br>
+								<div class="table-responsive">
+
+									<table class="table table-striped table-condensed table-hover table-bordered">
+										<caption class="text-center" id="section-graduationcreditrequired">毕业学分要求</caption>
+										
+										<thead>
+											<tr>
+												<th>必修课</th>
+												<th>限选课</th>
+												<th>选修课</th>
+												<th>校选修课</th>
+												<th colspan="2">操作</th>
+											</tr>
+										</thead>
+										<tbody id="tbgraduationcreditrequired">
+
+										</tbody>
+									</table>
+								</div>
+								<a href="#" id="add-btn-groupcourse" class="btn obe-right-control" role="button">
+									<span class="glyphicon glyphicon-plus" style="color: rgb(98, 125, 255);"> 增加</span>
+								</a>
+								<br>
+								<div class="table-responsive">
+									<!-- <h3>课程类别学分要求</h3> -->
+									<table class="table table-striped table-condensed table-hover table-bordered">
+										<caption class="text-center" id="section-groupcourse">课程类别分组学分要求</caption>
+										
+										<thead>
+											<tr>
+												<th>编号</th>
+												<th>组代码</th>
+												<th>组名称</th>
+												<th>学分</th>
+												<th colspan="2">操作</th>
+											</tr>
+										</thead>
+										<tbody id="tbgroupcourse">   		
+										</tbody>
+									</table>
+
+								</div>
+								<a href="#" id="add-btn-publicelectiverequired" class="btn obe-right-control" role="button">
+									<span class="glyphicon glyphicon-plus" style="color: rgb(98, 125, 255);"> 增加
+									</span>
+								</a>
+								<br>
+								<div class="table-responsive">
+									<!-- <h3>公选课学分要求</h3> -->
+									<table class="table table-striped table-condensed table-hover table-bordered">
+										<caption class="text-center" id="section-publicelectiverequired">公选课学分要求</caption>
+										
+										<thead>
+											<tr>
+												<th>经济管理类</th>
+												<th>艺术鉴赏类</th>
+												<th>人文科学类</th>
+												<th>自然科学类</th>    			
+												<th>综合教育类</th>
+												<th>通识平台选修</th>
+												<th>工程技术类</th>
+												<th colspan="2">操作</th>
+											</tr>
+										</thead>
+										<tbody id="tbpublicelectiverequired">
+										</tbody>
+									</table>
+
+								</div>
+
+
+							</div> <!--  end panel-body -->
+						</div> <!--  end collapse-professionplan -->
+					</div> <!--  end panel -->
+
+
+					<div class="panel panel-primary" id="section-coursecultivationplan">
+						<div class="panel-heading  center-block">
+							<h3 class="panel-title">
+							<!-- href="#collapse-coursecultivationplan" -->
+								<a data-toggle="collapse" data-parent="#accordion" >
+									课程计划
+								</a>
+							</h3>
+						</div>
+						
+						<div id="collapse-coursecultivationplan" class="panel-collapse collapse">
+							<div class="panel-body">
+								<!-- 设置查询条件 -->
+								<div class="container-fluid">
+									<div class="row">
+										<form id="query-condition-coursecultivationplan-form">
+											<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+												<div class="input-group">
+													<span class="input-group-addon">课程名称</span>
+													<input name="coursename" type="text" class="form-control" >
+												</div>
+											</div>
+											<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+												<div class="input-group">
+													<span class="input-group-addon">课程类别</span>
+													<input name="groupcourseCategory" type="text" class="form-control" >
+												</div>
+											</div>
+
+											<div class="col-xs-12 space" ></div>
+
+											<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+												<div class="input-group ">
+													<span class="input-group-addon">课程性质</span>
+													<input name="coursetype" type="text" class="form-control" >
+												</div>
+											</div>
+											<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+												<div class="input-group">
+													<span class="input-group-addon">修读学期</span>
+													<input name="adviceterm" type="text" class="form-control" >
+												</div>
+											</div>
+											
+											<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+												<button id="btn-query-coursecultivationplan" type="button" class="btn btn-info ">条件查询</button>
+												<a href="#" id="add-btn-coursecultivationplan" class="btn obe-right-control" role="button">
+													<span class="glyphicon glyphicon-plus" style="color: rgb(98, 125, 255);"> 增加</span>
+												</a>
+											</div>
+										</form>										
+									</div>
+								</div>
+								<br>
+								<div class="table-responsive">    
+									<table class="table table-striped table-condensed table-hover table-bordered">
+										<thead>
+											<tr>		
+												<th rowspan="2">编号</th>	
+												<th rowspan="2">课程名称</th>
+												<th rowspan="2">课程性质</th>
+												<th rowspan="2">课程类别</th>
+												<th rowspan="2">总学分</th>
+												<th rowspan="2">总学时</th>
+												<th colspan="4">各环节学时分配</th>
+												<th rowspan="2">考核类型</th>
+												<th rowspan="2">修读学期</th>
+												<th rowspan="2">周学时</th>				
+												<th rowspan="2" colspan="2" style="width: 120px;">操作</th>
+											</tr>
+											<tr>
+												<th class="center">授课</th>
+												<th class="center">实验</th>
+												<th class="center">上机</th>
+												<th class="center">课外</th>
+
+											</tr>
+										</thead>
+										<tbody id="tbviewcoursecultivationplan">
+
+
+										</tbody>
+									</table>
+
+								</div>
+							</div><!--  end panel-body -->
+						</div><!--  end collapse-coursecultivationplan -->
+					</div><!--  end panel -->
+
+
+					<div class="panel panel-primary" id="section-practicecultivationplan">
+						<div class="panel-heading  center-block">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" >
+									实践计划</a>
+								</h3>
+							</div>
+
+							<div id="collapse-practicecultivationplan" class="panel-collapse collapse">
+								<div class="panel-body">
+									<!-- 设置查询条件 -->
+									<div class="container-fluid">
+										<div class="row">
+											<form id="query-condition-practicecultivationplan-form">
+												<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+													<div class="input-group">
+														<span class="input-group-addon">实践名称</span>
+														<input name="coursename" type="text" class="form-control" >
+													</div>
+												</div>
+
+												<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+													<div class="input-group">
+														<span class="input-group-addon">修读学期</span>
+														<input name="adviceterm" type="text" class="form-control" >
+													</div>
+												</div>
+												
+												<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+													<button id="btn-query-practicecultivationplan" type="button" class="btn btn-info ">条件查询</button>
+													<a href="#" id="add-btn-practicecultivationplan" class="btn obe-right-control" role="button">
+														<span class="glyphicon glyphicon-plus" style="color: rgb(98, 125, 255);"> 增加</span>
+													</a>
+												</div>	
+											</form>
+										</div>
+									</div>
+									<br>
+									<div class="table-responsive">
+										<table class="table table-striped table-condensed table-hover table-bordered">
+											<thead>
+												<tr>
+													<th>编号</th>
+													<th>名称</th>
+													<th>学分</th>				
+													<th>周数</th>
+													<th>学期</th>
+													<th>实践类别</th>
+													<th>形式</th>			
+													<th colspan="2">操作</th>
+												</tr>
+											</thead>
+											<tbody id="tbviewpracticecultivationplan">
+
+											</tbody>
+
+										</table>
+									</div>
+
+								</div><!--  end panel-body -->
+							</div><!--  end collapse-practicecultivationplan -->
+						</div><!--  end panel -->
+
+					</div> <!-- end panel-group -->
+				</div>  <!-- end col -->
+
+
+				<!-- 模态框 -->
+				<div class="modal fade" id="modal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="modal-title">Modal title</h4>
+							</div>
+							<div class="modal-body" id="modal-body">
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+								<button type="button" class="btn btn-primary" id="modal-btn-submit">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div> <!-- end row -->
+		</div><!--  end container-fluid  -->
+
+	</div> <!--  end container  -->
+
+
+	<footer class="blog-footer">
+		<p>江西理工大学软件学院</p>
+		<p>
+			作者：Cisnao<br>邮箱：Cisnao@555.com.
+		</p>
+		<p>
+			<a href="#section-schoolprofessionstab">回到顶部</a>
+		</p>
+	</footer>
+
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="../static/js/jquery-2.1.4.min.js"></script>
+	<script src="../static/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+	<script src="../static/js/bootstrap-select.js"></script>
+
+	<script src="../static/js/base.js"></script>
+	<script src="../static/js/CultivationPlan.js"></script>
+	
+</body>
+</html>
